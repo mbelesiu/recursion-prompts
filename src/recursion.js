@@ -57,11 +57,38 @@ var isEven = function(n) {
 // sumBelow(10); // 45
 // sumBelow(7); // 21
 var sumBelow = function(n) {
+  if (n === 0){
+    return 0;
+  } else if (n < 0) {
+    return ((n+1) + sumBelow(n+1));
+  } else if (n > 0){
+    return ((n-1) + sumBelow(n-1));
+  }
 };
 
 // 6. Get the integers within a range (x, y).
 // range(2,9); // [3,4,5,6,7,8]
 var range = function(x, y) {
+
+  var rangeList = [];
+  var toAdd;
+
+  if (Math.abs(x - y) === 1 || (x - y) === 0) {
+    return [];
+  }
+  else if (x < y) {
+    toAdd = range((x+1),y);
+    return rangeList = rangeList.concat([x+1], toAdd);
+  }
+  else if(x > y) {
+    toAdd = range((x-1),y);
+    return rangeList = rangeList.concat([x-1], toAdd);
+  }
+
+
+  //return rangeList = rangeList.concat([x+1], toAdd);
+
+
 };
 
 // 7. Compute the exponent of a number.
